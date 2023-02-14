@@ -26,6 +26,7 @@ Scenario('Claimant solicitor raise a claim against 2 defendants, one of who is w
     null,
     respondent1,
     respondent2,
+    30000,
     false
   );
   // Reinstate the lines below when https://tools.hmcts.net/jira/browse/EUI-6286 is fixed
