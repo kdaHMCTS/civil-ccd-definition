@@ -33,6 +33,8 @@ Scenario('1v1 full defence unspecified - judge draws small claims WITH sum of da
   if (['preview', 'demo'].includes(config.runningEnv)) {
     await prepareClaim(api, claimAmountJudge);
     await api.createSDO(judgeUser, 'CREATE_SMALL');
+    await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+    await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
   }
 });
 
@@ -41,6 +43,8 @@ Scenario('1v1 full defence unspecified - judge draws fast track WITH sum of dama
   if (['preview', 'demo'].includes(config.runningEnv)) {
     await prepareClaim(api, claimAmountJudge);
     await api.createSDO(judgeUser, 'CREATE_FAST');
+    await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+    await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
   }
 });
 
@@ -49,6 +53,8 @@ Scenario('1v1 full defence unspecified - judge draws small claims WITHOUT sum of
   if (['preview', 'demo'].includes(config.runningEnv)) {
     await prepareClaim(api, claimAmountJudge);
     await api.createSDO(judgeUser, 'CREATE_SMALL_NO_SUM');
+    await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+    await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
   }
 });
 
@@ -58,6 +64,8 @@ Scenario('1v1 full defence unspecified - judge draws fast track WITHOUT sum of d
   if (['preview', 'demo'].includes(config.runningEnv)) {
     await prepareClaim(api, claimAmountJudge);
     await api.createSDO(judgeUser, 'CREATE_FAST_NO_SUM');
+    await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+    await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
   }
 });
 
@@ -72,6 +80,8 @@ Scenario('1v1 full defence unspecified - legal advisor draws small claims WITHOU
   if (['preview', 'demo'].includes(config.runningEnv)) {
     await prepareClaim(api, claimAmountAdvisor);
     await api.createSDO(legalAdvUser, 'CREATE_SMALL_NO_SUM');
+    await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+    await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
   }
 });
 
@@ -80,6 +90,8 @@ Scenario('1v1 full defence unspecified - legal advisor draws small claims WITH s
   if (['preview', 'demo'].includes(config.runningEnv)) {
     await prepareClaim(api, claimAmountAdvisor);
     await api.createSDO(legalAdvUser, 'CREATE_SMALL');
+    await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+    await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
   }
 });
 
@@ -88,6 +100,8 @@ Scenario('1v1 full defence unspecified - legal advisor draws fast track WITH sum
   if (['preview', 'demo'].includes(config.runningEnv)) {
     await prepareClaim(api, claimAmountAdvisor);
     await api.createSDO(legalAdvUser, 'CREATE_FAST');
+    await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+    await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
   }
 });
 
@@ -96,6 +110,8 @@ Scenario('1v1 full defence unspecified - legal advisor draws fast track WITHOUT 
   if (['preview', 'demo'].includes(config.runningEnv)) {
     await prepareClaim(api, claimAmountAdvisor);
     await api.createSDO(legalAdvUser, 'CREATE_FAST_NO_SUM');
+    await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+    await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
   }
 });
 
@@ -109,6 +125,8 @@ Scenario('1v1 full defence unspecified - judge draws disposal order', async ({ a
       WA.validateTaskInfo(task, fastTrackDirectionsTask);
     }
     await api.createSDO(judgeUser);
+    await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+    await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
   }
 });
 
@@ -123,6 +141,8 @@ Scenario('1v1 full defence unspecified - legal advisor draws disposal order', as
       WA.validateTaskInfo(task, smallClaimDirectionsTask);
     }
     await api.createSDO(legalAdvUser);
+    await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+    await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
   }
 });
 
@@ -136,6 +156,8 @@ Scenario('1v1 full defence unspecified - judge declares SDO unsuitable', async (
       const task = await api.retrieveTaskDetails(config.hearingCenterAdminWithRegionId1, caseId, config.waTaskIds.notSuitableSdo);
       WA.validateTaskInfo(task, transferOfflineSdoTask);
     }
+    await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+    await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
   }
 });
 

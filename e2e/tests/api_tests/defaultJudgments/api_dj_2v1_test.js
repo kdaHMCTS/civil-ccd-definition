@@ -38,6 +38,8 @@ Scenario('Default Judgment claim SDO', async ({I, api}) => {
   if (config.runWAApiTest) {
     api.completeTaskByUser(config.judgeUserWithRegionId1, taskId);
   }
+  await api.evidenceUploadApplicant(config.applicantSolicitorUser);
+  await api.evidenceUploadRespondent(config.defendantSolicitorUser, mpScenario);
 });
 
 Scenario('Verify Case progression caseProgressionTakeCaseOfflineTask hearing center admin task', async ({I, api, WA}) => {
